@@ -131,3 +131,16 @@ export const search = async (req, res, next) => {
     next(err);
   }
 };
+
+
+export const videosUser = async (req, res, next) => {
+  const user = req.params.id
+  try {
+    const videos = await Video.find({
+      userId: user,
+    }).limit(40);
+    res.status(200).json(videos);
+  } catch (err) {
+    next(err);
+  }
+}
