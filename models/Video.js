@@ -36,6 +36,14 @@ const VideoSchema = new mongoose.Schema({
     dislikes: {
         type: [String],
         default: []
+    },
+    imgPfp: {
+        type: String,
+        default: 'https://res.cloudinary.com/dh01ngdjo/image/upload/v1705174974/trick-treat3-img_f7txg5.png'
+    },
+    nameChannel: {
+        type: String,
+        default: 'Pixelguy'
     }
 
 
