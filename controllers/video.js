@@ -73,7 +73,7 @@ export const addView = async (req, res, next) => {
 
 export const random = async (req, res, next) => {
   console.log('a', req.query)
-  const { page = 1, pageSize = 4 } = req.query;
+  const { page = 1, pageSize = 12 } = req.query;
   console.log('s', page, pageSize)
   const skip = (page - 1) * pageSize;
   console.log('s', skip)
