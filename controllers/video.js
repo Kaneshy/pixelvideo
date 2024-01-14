@@ -72,13 +72,19 @@ export const addView = async (req, res, next) => {
 };
 
 export const random = async (req, res, next) => {
+  console.log('a', req.query)
+  const { page = 1, pageSize = 4 } = req.query;
+  console.log('s', page, pageSize)
+  const skip = (page - 1) * pageSize;
+  console.log('s', skip)
   try {
-    const videos = await Video.aggregate([{ $sample: { size: 40 } }]);
+    const videos = await Video.find().skip(skip).limit(pageSize);
     res.status(200).json(videos);
   } catch (err) {
     next(err);
   }
 };
+
 
 export const trend = async (req, res, next) => {
   try {
